@@ -1,0 +1,25 @@
+appId: com.qazandoqafood
+---
+- launchApp
+- tapOn:
+    id: "email"
+- inputText: teste@teste.com    
+- tapOn:
+    id: "password"
+- inputText: 123456
+- tapOn:
+    id: "login-button"
+- tapOn: "Selecione seu endereço..."
+- tapOn: "PERMITIR"
+- tapOn: "Pastelaria da Maria"
+- tapOn:
+    point: "95%,48%"
+- tapOn:
+    id: "open-cart-button"
+- tapOn:
+    id: "confirm-order-button"
+- scroll
+- tapOn: "Dinheiro"
+- tapOn:
+    id: "do-order-button"
+- assertVisible: "Pedido realizado"

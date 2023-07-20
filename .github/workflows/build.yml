@@ -1,0 +1,27 @@
+name: Build
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    container:
+      image: docker.io/cypress/browsers
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: 14
+
+      - uses: mobile-dev-inc/action-maestro-cloud@v1.1.0
+        with:
+          api-key: 32e00590-435d-469e-90b2-15806898c0cc
+          app-file: qafood.apk
