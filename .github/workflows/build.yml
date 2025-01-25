@@ -29,6 +29,11 @@ jobs:
           project-id: proj_01jjex2bzhe5a88dms9qdqmgzy 
           app-file: qafood.apk
 
-      - name: Run Maestro tests
+     - name: Trigger Maestro tests
         run: |
-          maestro test android-flow.yaml
+          curl -X POST "https://api.maestro.app/v1/projects/proj_01jjex2bzhe5a88dms9qdqmgzy/tests/start" \
+               -H "Authorization: Bearer rb_v7Sf3tyDTZa0lPJZ0BGLHadRG9cMItFyhZTG09gHcH8dwpIpOC4Vpe13QDGxikBPKXaeSYQNWCbw0UAUzRCBBpiRZwqMunQESzE" \
+               -d '{"android-flow.yaml"}'
+        env:
+          MAESTRO_API_KEY: rb_v7Sf3tyDTZa0lPJZ0BGLHadRG9cMItFyhZTG09gHcH8dwpIpOC4Vpe13QDGxikBPKXaeSYQNWCbw0UAUzRCBBpiRZwqMunQESzE
+          PROJECT_ID: proj_01jjex2bzhe5a88dms9qdqmgzy
