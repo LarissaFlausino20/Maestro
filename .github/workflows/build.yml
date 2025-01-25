@@ -1,4 +1,4 @@
-name: Build
+name: Build and Test with Maestro
 
 on:
   push:
@@ -19,9 +19,27 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v2
         with:
-          node-version: 14
+          node-version: '14'
 
-      - uses: mobile-dev-inc/action-maestro-cloud@v1.1.0
+      # Passo para instalar dependências, se necessário
+      - name: Install dependencies
+        run: |
+          npm install
+
+      # Passo para fazer upload do APK para o Maestro Studio
+      - name: Upload APK to Maestro Studio
+        uses: mobile-dev-inc/action-maestro-cloud@v1.1.0
         with:
           api-key: rb_v7Sf3tyDTZa0lPJZ0BGLHadRG9cMItFyhZTG09gHcH8dwpIpOC4Vpe13QDGxikBPKXaeSYQNWCbw0UAUzRCBBpiRZwqMunQESzE
           app-file: qafood.apk
+
+      # Passo para rodar os testes automatizados com o Robin (usando Maestro Studio)
+      - name: Run tests on Maestro Studio
+        run: |
+          curl -L https://robin.maestro.cloud/install.sh | bash  # Instala o Robin CLI
+          robin-cli test start --project "YourProjectName" --env "production"  # Inicia os testes
+          
+      # Passo para buscar os resultados dos testes
+      - name: Get test results
+        run: |
+          robin-cli test results --project "YourProjectName"
