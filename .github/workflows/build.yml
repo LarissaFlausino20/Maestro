@@ -1,4 +1,4 @@
-name: Run Maestro Tests
+name: Executando os testes no Device Farm Robin do Maestro
 
 on:
   push:
@@ -22,11 +22,13 @@ jobs:
           curl -Ls "https://get.maestro.mobile.dev" | bash
           echo "$HOME/.maestro/bin" >> $GITHUB_PATH
 
-      # Exportar chave API do Maestro Cloud
-      - name: Set Maestro API Key
-        run: echo "MAESTRO_API_KEY=b_v7Sf3tyDTZa0lPJZ0BGLHadRG9cMItFyhZTG09gHcH8dwpIpOC4Vpe13QDGxikBPKXaeSYQNWCbw0UAUzRCBBpiRZwqMunQESzE" >> $GITHUB_ENV
+      # Exportar chave API e Project ID do Maestro
+      - name: Set Environment Variables
+        run: |
+          echo "MAESTRO_API_KEY=rb_v7Sf3tyDTZa0lPJZ0BGLHadRG9cMItFyhZTG09gHcH8dwpIpOC4Vpe13QDGxikBPKXaeSYQNWCbw0UAUzRCBBpiRZwqMunQESzE" >> $GITHUB_ENV
+          echo "PROJECT_ID=proj_01jjex2bzhe5a88dms9qdqmgzy " >> $GITHUB_ENV
 
       # Rodar testes usando o Maestro
       - name: Run Maestro Tests
         run: |
-          maestro cloud --apiKey $MAESTRO_API_KEY --project-id proj_01jjex2bzhe5a88dms9qdqmgzy ravkr qafood.apk .maestro/
+          maestro cloud --apiKey $MAESTRO_API_KEY --project-id $PROJECT_ID qafood.apk .maestro/
