@@ -21,7 +21,9 @@ jobs:
         with:
           node-version: 14
 
-      - uses: mobile-dev-inc/action-maestro-cloud@v1.9.6
+      - name: Upload APK to Maestro Studio
+        uses: mobile-dev-inc/action-maestro-cloud@v1.9.6
         with:
           api-key: rb_v7Sf3tyDTZa0lPJZ0BGLHadRG9cMItFyhZTG09gHcH8dwpIpOC4Vpe13QDGxikBPKXaeSYQNWCbw0UAUzRCBBpiRZwqMunQESzE
+          project-id: proj_01jjex2bzhe5a88dms9qdqmgzy 
           app-file: qafood.apk
