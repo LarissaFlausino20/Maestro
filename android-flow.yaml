@@ -17,7 +17,7 @@ appId: com.qazandoqafood
     id: "item-title"
     index: 0
 - tapOn:
-    point: "95%,48%"
+    point: "95%,46%"
 - tapOn:
     id: "open-cart-button"
 - tapOn:
