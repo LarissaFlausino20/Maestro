@@ -21,9 +21,7 @@ jobs:
         with:
           node-version: 14
 
-      - name: Upload APK to Maestro Cloud and Run Tests
-        uses: mobile-dev-inc/action-maestro-cloud@v1.1.0
+      - uses: mobile-dev-inc/action-maestro-cloud@v1.1.0
         with:
-          api-key: b_v7Sf3tyDTZa0lPJZ0BGLHadRG9cMItFyhZTG09gHcH8dwpIpOC4Vpe13QDGxikBPKXaeSYQNWCbw0UAUzRCBBpiRZwqMunQESzE 
+          api-key: rb_v7Sf3tyDTZa0lPJZ0BGLHadRG9cMItFyhZTG09gHcH8dwpIpOC4Vpe13QDGxikBPKXaeSYQNWCbw0UAUzRCBBpiRZwqMunQESzE
           app-file: qafood.apk
-          async: true  
