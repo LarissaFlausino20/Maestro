@@ -32,7 +32,7 @@ jobs:
       # Passo para iniciar os testes no Maestro Studio usando o arquivo android-flow.yaml
       - name: Trigger Maestro tests
         run: |
-          curl -X POST "https://api.maestro.app/v1/projects/proj_01jjex2bzhe5a88dms9qdqmgzy/tests/start" \
+          curl -X POST "https://app.robintest.com/project/proj_01jjex2bzhe5a88dms9qdqmgzy/maestro-test/app/app_01jjfbth5xfx49j772dxjxa43w/upload/mupload_01jjfe2wg3fw8r0twz29j2t9jz?sort=name-asc/tests/start" \
                -H "Authorization: Bearer rb_v7Sf3tyDTZa0lPJZ0BGLHadRG9cMItFyhZTG09gHcH8dwpIpOC4Vpe13QDGxikBPKXaeSYQNWCbw0UAUzRCBBpiRZwqMunQESzE" \
                -d '{
                      "test_suite_id": "proj_01jjex2bzhe5a88dms9qdqmgzy",  
