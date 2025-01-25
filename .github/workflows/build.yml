@@ -1,4 +1,4 @@
-name: Build and Test with Maestro
+name: Build
 
 on:
   push:
@@ -37,9 +37,9 @@ jobs:
       - name: Run tests on Maestro Studio
         run: |
           curl -L https://robin.maestro.cloud/install.sh | bash  # Instala o Robin CLI
-          robin-cli test start --project "YourProjectName" --env "production"  # Inicia os testes
+          robin-cli test start --project "QAFood App" --env "production"  # Inicia os testes
           
       # Passo para buscar os resultados dos testes
       - name: Get test results
         run: |
-          robin-cli test results --project "YourProjectName"
+          robin-cli test results --project "QAFood App"
