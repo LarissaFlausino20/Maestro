@@ -1,3 +1,6 @@
+test_name: Compra e2e
+description: Testa a funcionalidade de compra e2e do aplicativo
+
 appId: com.qazandoqafood
 ---
 - launchApp
@@ -8,6 +11,8 @@ appId: com.qazandoqafood
     id: "password"
 - inputText: 123456
 - tapOn:
+    id: "android:id/input_method_nav_back"
+- tapOn:
     id: "login-button"
 - tapOn: "Selecione seu endereço..."
 - tapOn:
@@ -17,7 +22,8 @@ appId: com.qazandoqafood
     id: "item-title"
     index: 0
 - tapOn:
-    point: "95%,46%"
+    id: "add-item-buttom"
+    index: 0
 - tapOn:
     id: "open-cart-button"
 - tapOn:
