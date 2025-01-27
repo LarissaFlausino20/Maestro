@@ -16,20 +16,46 @@ Maestro is the easiest way to automate UI testing for your mobile app.
 
 download-samples downloads these files and apps from storage.googleapis.com.
 
-# Update the samples
+# How to run the project on your machine
 
-Although the samples are checked in, updating them requires a few manual steps:
+This project uses **Maestro Studio** for mobile application testing automation. Follow the steps below to run the tests **locally** and in **headless mode**.
 
-* Change the samples in this directory and merge these changes
-* Run `maestro download-samples`
-* Copy *.yaml to the samples directory created by download-samples
-* Run `(cd samples && zip -r "$OLDPWD/samples.zip" . -x "/**/.*" -x "__MACOSX")`
-* Open https://console.cloud.google.com/storage/browser/mobile.dev/samples
-* Upload samples.zip
-* Adjust the permissions of samples.zip to "Public to Internet"
-* Run `maestro download-samples` and verify that the change was successful
+## Prerequisites
 
-## Contatos
+- Node.js:(https://nodejs.org)
+- Maestro Studio:(https://maestro.app)
+- Mobile device or emulator/simulator configured:(https://developer.android.com)
+
+## Step 1: Clone the repository
+
+Clone this repository:
+
+git clone https://github.com/LarissaFlausino20/Maestro.git
+
+## Step 2: Install dependencies
+
+Install the dependencies with npm:
+
+npm install
+
+## Step 3: Configure the environment
+
+Configure the environment depending on your operating system.
+
+For macOS or Linux:
+
+export ANDROID_HOME=/path/to/android/sdk
+export PATH=$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools:$PATH
+
+## Step 4: Run the tests locally
+
+macOS / Linux 
+
+To run the tests locally on a device or emulator, run the command:
+
+maestro test android-flow.yaml
+
+## Contacts
 
 <a href="https://www.linkedin.com/in/larissa-flausino-49a942213/">
     <img src="https://img.shields.io/badge/linkedin-%230077B5.svg?style=for-the-badge&logo=linkedin&logoColor=white" />
